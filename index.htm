@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PlayBattle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 id="titreSite">
+        PLAYBATTLE
+        <span id="slogan">
+            · Reveal Yourself
+        </span>
+    </h1>
+
+    <h2 id="nomJeu">
+        Strip Memory
+    </h2>
+    <div id="accueil">
+
+<div id="infoUpdate">
+
+    <div id="messageCommunaute">
+
+    <strong>
+        ✅ Player Profiles are Live!
+    </strong>
+
+    <br>
+
+    Create your profile today and secure your nickname.
+
+    <br><br>
+
+    🏆 Coming soon:
+    Badges, achievements, player statistics and community rewards.
+
+    <br><br>
+
+    Thank you for helping build PlayBattle from day one!
+
+</div>
+
+</div>
+
+
+        <input type="text" id="pseudo" placeholder="Nickname">
+
+        <br><br>
+        
+           <div id="choixModeAccueil">
+
+    
+
+</div>
+
+<div class="duelDescription">
+    Reveal a little more
+</div>
+        <div id="howToWin">
+
+            <h3>⚔️ HOW TO WIN</h3>
+
+            <p>
+                Find your opponents' clothes.
+            </p>
+
+            <p>
+                When a clothing pair is found,
+                its owner removes it.
+            </p>
+
+            <p>
+                A naked player is eliminated.
+            </p>
+
+        </div>
+
+        <br><br>
+        <div id="zoneActions">
+
+    <label id="labelPublic">
+
+        <input
+            type="checkbox"
+            id="partiePublique"
+            checked>
+
+        Public Game
+
+    </label>
+
+           <div id="zoneCompte">
+
+    <div id="compteAccueil">
+
+        <button id="connectProfile">
+            👤<br>Connect
+        </button>
+
+        <button
+            id="logoutProfile"
+            class="boutonMenu"
+            style="display:none;">
+            Logout
+        </button>
+
+    </div>
+
+</div>
+
+<div id="zoneJeu">
+<label>
+    <input type="radio" name="modeJoueurs" value="2" checked>
+    Duel 🌶️
+</label>
+
+<label>
+    <input type="radio" name="modeJoueurs" value="3">
+    3 Players
+</label>
+
+<label>
+    <input type="radio" name="modeJoueurs" value="4">
+    4 Players
+</label>
+    <button id="creerPartie" class="boutonMenu">
+        Create Game
+    </button>
+
+    <button id="boutonRejoindre" class="boutonMenu">
+        Join Game
+    </button>
+
+    <input
+        type="text"
+        id="codePartie"
+        ...>
+
+</div>
+
+<div id="colonneParties">
+<h2>🟢 Online Players</h2>
+
+<div id="joueursEnLigne">
+</div>
+
+<br>
+
+<br>
+        <h3>🎮 Open Games</h3>
+
+        <div id="partiesPubliques">
+        </div>
+
+    </div>
+
+    <div id="colonneCommunity">
+
+        <h3>🌍 Live Community</h3>
+
+        <div id="chatAccueil">
+        </div>
+
+        <div id="zoneEnvoiAccueil">
+
+            <input
+    type="text"
+    id="messageAccueil"
+    placeholder="Type a message..."
+    maxlength="100">
+            <button id="envoyerAccueil">
+                Send
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+        </div>
+
+    </div>
+
+    <div id="lobby" style="display:none;">
+
+    <div id="badgesLobby">
+
+        <span class="badgeLobby">
+            🏷 <span id="codeLobby"></span>
+        </span>
+
+        <span class="badgeLobby">
+            👥 <span id="badgeJoueurs">1 / 4</span>
+        </span>
+
+        <span class="badgeLobby">
+            🌶 <span id="modeLobby">4 Players</span>
+        </span>
+
+        <span class="badgeLobby">
+            🌍 Public
+        </span>
+
+    </div>
+
+    <div id="contenuLobby">
+
+        <div id="colonneJoueurs">
+
+            <h3>Players</h3>
+
+            <ul id="listeJoueurs"></ul>
+            <div id="conseilMode" style="display:none;">
+    ⚠️ Waiting too long?<br>
+    Try another game mode.
+</div>
+
+        </div>
+
+        <div id="colonneChat">
+
+            <h3>💬 Lobby Chat</h3>
+
+            <div id="chatLobby"></div>
+
+            <div id="zoneEnvoiChat">
+
+               <input
+    type="text"
+    id="messageChat"
+    placeholder="Type a message..."
+    maxlength="100">
+
+                <button id="envoyerMessage">
+                    Send
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+<div id="messageModeLobby"
+     style="color:gold;
+            font-size:22px;
+            text-align:center;
+            margin:25px 0;">
+    💡 Not enough players?
+Try another game mode below to find players faster.
+</div>
+    <div id="barreLobby">
+
+        <span id="compteurReady">
+            Ready : 0 / 0
+        </span>
+
+        <label class="switch">
+
+            <input
+                type="checkbox"
+                id="readySwitch">
+
+            <span class="slider"></span>
+
+        </label>
+
+        <h4 id="titreModeLobby">
+            Change Mode
+        </h4>
+
+        <div id="choixMode">
+
+            <button id="mode2" class="boutonMode">
+                Duel
+            </button>
+
+            <button id="mode3" class="boutonMode">
+                3 Players
+            </button>
+
+            <button id="mode4" class="boutonMode">
+                4 Players
+            </button>
+
+        </div>
+
+        <button id="commencer">
+            Start Game
+        </button>
+
+    </div>
+
+</div>
+
+<div id="howToPlay" style="display:none;">
+            <h2>⚔️ HOW TO PLAY</h2>
+
+            <h3>🎯 YOUR MISSION</h3>
+
+            <p>
+                Find your opponents' clothes.
+            </p>
+
+            <p style="color:gold;font-size:28px;font-weight:bold;">
+                NOT YOUR OWN!
+            </p>
+
+            <br>
+
+            <p>
+                👕 Every clothing pair found<br>
+                must be removed by its owner.
+            </p>
+
+            <p>
+                🙈 A naked player is eliminated.
+            </p>
+
+            <p>
+                📹 Click the yellow <b>OPEN VIDEO</b><br>
+                button before playing.
+            </p>
+
+            <p>
+                🤝 Respect every player<br>
+                and have fun!
+            </p>
+
+            <br>
+
+            <button id="continuerJeu">
+                START GAME
+            </button>
+
+        </div>
+        <div id="jeu" style="display:none;">
+
+            <h2 id="tour" class="joueur1">
+                🔴 Turn player 1
+            </h2>
+
+            <h3 id="timer">
+                ⏱️ 15
+            </h3>
+
+            <p id="scores">
+                J1 : 0 | J2 : 0 | J3 : 0 | J4 : 0
+            </p>
+
+            <p id="etatCouleurs">
+                🔵 Bleu : 3 | 🔴 Rouge : 3 | 🟡 Jaune : 3 | 🟢 Vert : 3
+            </p>
+
+            <p id="score">
+                Score : 0
+            </p>
+
+<div id="reglesVideo">
+
+    <h3>📹 VIDEO</h3>
+
+    <p>✔ Camera is optional.</p>
+
+    <p>✔ Show removed clothing on camera.</p>
+
+    <p>✔ Duel actions must be performed live on camera.</p>
+
+    <p>✔ Respect all players.</p>
+
+</div>
+<div id="zoneBoutonVideo">
+                <button id="salonVideo">
+                    🎥 📹 VIDEO & CHAT
+                </button>
+
+                <p id="infoSalonVideo">
+                    Voice and text chat are available in the video room.
+                </p>
+            </div>
+            <button id="nouvellePartie">
+                New Game
+            </button>
+            <div id="reglesDuel" style="display:none;">
+
+                <h3>🎮 DUEL CARDS</h3>
+
+                <p>
+                    🍆<br>
+                    Masturbate 30s
+                </p>
+
+                <p>
+                    🍑<br>
+                    10 spankings
+                </p>
+
+                <p>
+                    🛡️ Shield<br>
+                    Block one action.
+                </p>
+
+                <p>
+                    🎁 Gift<br>
+                    Ask anything you want.
+                </p>
+
+            </div>
+
+            <div id="plateau"></div>
+
+            
+
+        </div>
+
+        <div id="finPartie" style="display:none;">
+
+            <h2>🏆 Game Over</h2>
+
+            <p id="classement"></p>
+
+            <button id="rejouer">
+                New Game
+            </button>
+
+        </div>
+        <div id="popupRegles" style="display:none;">
+
+            <div id="contenuPopup">
+
+                <h2>🎯 YOUR MISSION</h2>
+
+                <p>
+                    Find your opponents' clothes.
+                </p>
+
+                <p style="color:gold;font-size:28px;font-weight:bold;">
+                    NOT YOUR OWN!
+                </p>
+
+                <p>
+                    👕 Every clothing pair found<br>
+                    must be removed by its owner.
+                </p>
+
+                <p>
+                    🙈 A naked player is eliminated.
+                </p>
+
+                <p>
+                    📹 Click the yellow <b>OPEN VIDEO</b><br>
+                    button before playing.
+                </p>
+
+                <p>
+                    🤝 Respect every player<br>
+                    and have fun!
+                </p>
+
+                <button id="continuerPopup">
+                    START PLAYING
+                </button>
+
+            </div>
+
+            <button id="fermerPopupOK">
+                GOT IT!
+            </button>
+
+        </div>
+
+        <script type="module" src="script.js"></script>
+        <p id="signature">
+            Game developed by Whale
+        </p>
+
+        <p id="contactWhale">
+            Need help?<br>
+            Found a bug?<br>
+            Have a suggestion?<br><br>
+
+            <a href="mailto:playbattle.help@outlook.fr">
+                📧 playbattle.help@outlook.fr
+            </a>
+            </p>
+        
+            
+   <div id="profileModal">
+
+    <h2>CREATE PROFILE</h2>
+
+    <input
+        type="text"
+        id="profileNickname"
+        placeholder="Nickname">
+
+    <input
+        type="password"
+        id="profilePassword"
+        placeholder="Password">
+
+    <input
+        type="password"
+        id="profileConfirmPassword"
+        placeholder="Confirm password">
+
+    <div class="profileColumns">
+
+        <div class="profileColumn">
+
+            <h3>I AM</h3>
+
+            <label class="optionLine">
+                <input
+                    type="radio"
+                    name="gender"
+                    value="man"
+                    checked>
+                <span>Man</span>
+            </label>
+
+            <label class="optionLine">
+                <input
+                    type="radio"
+                    name="gender"
+                    value="woman">
+                <span>Woman</span>
+            </label>
+
+            <label class="optionLine">
+                <input
+                    type="radio"
+                    name="gender"
+                    value="couple">
+                <span>Couple</span>
+            </label>
+
+            <label class="optionLine">
+                <input
+                    type="radio"
+                    name="gender"
+                    value="martian">
+                <span>Martian</span>
+            </label>
+
+        </div>
+
+        <div class="profileColumn">
+
+            <h3>I PLAY WITH</h3>
+
+            <label class="optionLine">
+                <input
+                    type="checkbox"
+                    id="playMen"
+                    checked>
+                <span>Men</span>
+            </label>
+
+            <label class="optionLine">
+                <input
+                    type="checkbox"
+                    id="playWomen"
+                    checked>
+                <span>Women</span>
+            </label>
+
+            <label class="optionLine">
+                <input
+                    type="checkbox"
+                    id="playCouples"
+                    checked>
+                <span>Couples</span>
+            </label>
+
+            <label class="optionLine">
+                <input
+                    type="checkbox"
+                    id="playMartians">
+                <span>Martians</span>
+            </label>
+
+        </div>
+
+    </div>
+
+    <div class="profileBottom">
+
+        <h3>COUNTRY</h3>
+
+        <input
+            type="text"
+            id="profileCountry"
+            placeholder="Country (optional)">
+
+        <label class="optionLine">
+
+            <input
+                type="checkbox"
+                id="over18">
+
+            <span>I am over 18 years old</span>
+
+        </label>
+
+    </div>
+
+    <div class="profileButtons">
+
+    <button id="cancelProfile">
+        Cancel
+    </button>
+
+    <button id="loginProfile">
+        Login
+    </button>
+
+    <button id="saveProfile">
+        Create Profile
+    </button>
+
+</div>
+
+</div>
+<div
+    id="viewProfileModal"
+    class="modal"
+    style="display:none;">
+
+    <div class="modal-content">
+
+        <h2>Player Profile</h2>
+
+        <div id="viewProfileContent"></div>
+
+        <br>
+
+        <button id="closeProfile">
+            Close
+        </button>
+
+    </div>
+
+</div>
+
+    

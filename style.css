@@ -1,0 +1,1138 @@
+body {
+    background: linear-gradient(
+        #3a3a3a,
+        #222222
+    );
+    color: white;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+#reglesDuel {
+    position: absolute;
+    left: 20px;
+    top: 360px;
+    width: 180px;
+    text-align: left;
+    background-color: rgba(0,0,0,0.3);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#reglesDuel h3 {
+    margin-top: 0;
+    color: gold;
+}
+
+#plateau {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    width: fit-content;
+    margin: 20px auto;
+}
+
+button {
+    width: 90px;
+    height: 140px;
+    margin: 8px;
+    border-radius: 10px;
+    border: none;
+    padding: 0; 
+    cursor: pointer;
+    background: transparent;
+    font-size: 18px;
+    color: #ffd700;
+font-weight: bold;
+text-shadow: 0 0 5px rgba(255,215,0,0.6);
+}
+
+button img {
+    width: 90px;
+    height: 140px;
+    object-fit: contain;
+}
+
+button:hover {
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+.joueur1 {
+    color: deepskyblue;
+}
+
+.joueur2 {
+    color: red;
+}
+
+.joueur3 {
+    color: gold;
+}
+
+.joueur4 {
+    color: limegreen;
+}
+
+#finPartie {
+    display: none;
+    background-color: #333;
+    border: 3px solid gold;
+    border-radius: 20px;
+    width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    animation: apparition 0.8s ease;
+}
+
+#finPartie h2 {
+    color: gold;
+}
+
+@keyframes apparition {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+button {
+    width: 90px;
+    height: 140px;
+    margin: 8px;
+    border-radius: 10px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    font-size: 18px;
+    color: #ffd700;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255,215,0,0.6);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+.boutonMenu {
+    color: gold;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.6);
+    width: 110px;
+    height: 70px;
+    margin: 4px;
+}
+button:hover {
+    transform: scale(1.1) rotate(2deg);
+    transition: 0.2s;
+    box-shadow: 0 0 20px gold;
+}
+#tour {
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+
+#scores {
+    font-size: 1.2em;
+    opacity: 0.8;
+    position: absolute;
+    left: 20px;
+    top: 180px;
+    text-align: left;
+}
+#score {
+    font-size: 0.8em;
+    opacity: 0.6;
+    position: absolute;
+    left: 20px;
+    top: 350px;
+    text-align: left;
+}
+.bouton-exclure {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+    box-shadow: none;
+    width: auto;
+    height: auto;
+    margin: 0;
+}
+.ligne-joueur {
+    list-style: none;
+}
+#changerMode {
+
+    text-align: center;
+
+    margin-top: 20px;
+
+}
+.boutonMode{
+
+    padding:8px 16px;
+
+    min-width:90px;
+
+    height:38px;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    background:#1d1d1d;
+
+    color:#ffd700;
+
+    border:1px solid #666;
+
+    box-shadow:none;
+
+}
+.partiePublique {
+
+    width: 140px;
+    height: 60px;
+
+}
+#partiesPubliques {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+     max-height: 260px;
+
+    overflow-y: auto;
+
+}
+#zoneActions {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+}
+
+#labelPublic {
+
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 26px;
+
+}
+
+#codePartie {
+
+    width: 110px;
+
+    text-align: center;
+
+   
+}
+#signature {
+    font-size: 11px;
+    color: #7e7d7d;
+    margin-top: 30px;
+}
+
+#contactWhale a {
+    color: #888;
+    text-decoration: none;
+}
+#contactWhale {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#contactWhale a:hover {
+    text-decoration: underline;
+}
+#boutonReady {
+
+    width: 120px;
+    height: 40px;
+
+    font-size: 20px;
+
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #555;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+#texteReady {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+#titreSite {
+    margin-bottom: 0;
+}
+
+#slogan {
+    margin-top: -10px;
+    font-size: 16px;
+}
+#nomJeu {
+
+    margin-top: 5px;
+    margin-bottom: 20px;
+
+    font-size: 22px;
+    font-weight: normal;
+
+}
+.duelDescription {
+
+    font-size: 12px;
+    font-style: italic;
+    opacity: 0.7;
+
+    margin-left: 25px;
+    margin-bottom: 10px;
+
+}
+#infosLobby {
+
+    font-size: 20px;
+    font-weight: bold;
+
+}
+#zoneReady {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 15px 0;
+
+}
+#howToWin {
+
+    width: 320px;
+
+    margin: 5px auto;
+
+    padding: 12px;
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid #555;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+
+}
+
+#howToWin h3 {
+
+    margin-top: 0;
+    color: gold;
+
+}
+
+#howToWin p {
+
+    margin: 8px 0;
+
+}
+#reglesVideo {
+
+    position: absolute;
+
+    right: 20px;
+    top: 180px;
+
+    width: 220px;
+
+    text-align: left;
+
+    background: rgba(0,0,0,0.3);
+
+    padding: 10px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+
+}
+
+#reglesVideo h3 {
+
+    margin-top: 0;
+
+    color: gold;
+
+}
+#salonVideo {
+
+    background: gold;
+
+    color: black;
+
+    font-weight: bold;
+
+    border: 2px solid #222;
+
+    border-radius: 8px;
+
+}
+#salonVideo:hover {
+
+    background: #ffd700;
+
+    transform: scale(1.05);
+
+}
+
+
+#popupRegles{
+    display: none;
+    background-color: #333;
+    border: 3px solid gold;
+    border-radius: 20px;
+    width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    text-align: center;
+    color: white;
+}
+#popupRegles h2{
+    color: gold;
+}
+#howToPlay{
+
+    display:none;
+
+    text-align:center;
+
+    color:white;
+
+}
+
+#howToPlay h2{
+
+    color:gold;
+
+}
+
+#howToPlay button{
+
+    margin-top:30px;
+
+}
+#chatLobby {
+
+    width: 60px;
+    height: 120px;
+
+    overflow-y: auto;
+
+    border: 1px solid #555;
+
+    padding: 10px;
+     background: rgba(255,255,255,0.05);
+
+    text-align: left;
+     box-sizing: border-box;
+
+}
+#contenuLobby {
+
+    display: grid;
+
+    grid-template-columns: 180px 820px;
+
+    max-width: 1400px;
+
+    width: 95%;
+
+    margin: 30px auto;
+
+    gap: 70px;
+
+    align-items: start;
+
+}
+
+#colonneJoueurs {
+
+    width: auto;
+     justify-self: start;
+     margin-left: 25px;
+
+}
+
+
+#colonneChat {
+
+    width: auto;
+     justify-self: stretch;
+
+}
+
+#listeJoueurs {
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+
+}
+
+#chatLobby {
+
+    width: 100%;
+
+    height: 100px;
+
+    overflow-y: auto;
+
+    border: 1px solid #555;
+
+    border-radius: 10px;
+
+    padding: 10px;
+
+    background: rgba(255,255,255,0.05);
+
+    text-align: left;
+
+    box-sizing: border-box;
+
+}
+
+#zoneEnvoiChat {
+
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 10px;
+
+}
+
+#messageChat {
+
+    flex: 1;
+
+}
+
+#envoyerMessage {
+
+    width: auto !important;
+
+    height: auto !important;
+
+    padding: 8px 14px;
+
+}
+#barreLobby {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-top: 30px;
+
+    flex-wrap: wrap;
+
+}
+#choixMode {
+
+    display: flex;
+
+    gap: 8px;
+
+}
+#commencer {
+
+    width: 170px;
+
+    height: 50px;
+
+    font-size: 20px;
+    background:#ffd700;
+    color:#222;
+    font-size:22px;
+font-weight:bold;
+border:2px solid #ffd700;
+box-shadow:0 0 15px rgba(255,215,0,.5);
+
+}
+#infosLobby{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:25px;
+
+}
+
+.badgeLobby{
+
+    background:#444;
+
+    border:1px solid #666;
+
+    border-radius:20px;
+
+    padding:8px 18px;
+
+    font-weight:bold;
+
+}
+
+.carteJoueur {
+
+    width: 200px;
+
+    padding: 12px;
+
+    margin-bottom: 15px;
+
+   background: rgba(255,248,235,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+
+}
+.nomJoueur {
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+    cursor: pointer;
+transition: 0.2s;
+
+}
+.nomJoueur:hover {
+
+    color: gold;
+
+    text-decoration: underline;
+
+}
+.etatJoueur {
+
+    font-size: 14px;
+
+    color: #bbbbbb;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+}
+#titreModeLobby{
+
+    text-align:center;
+
+    font-size:18px;
+
+    margin-bottom:12px;
+
+    color:white;
+
+}
+.boutonMode:hover{
+ color:white;
+
+    background:#333;
+    text-shadow:
+0 0 8px rgba(255,215,0,.7);
+
+}
+#chatAccueil {
+
+    width: 700px;
+
+    height: 130px;
+
+    margin: 10px auto;
+
+    padding: 12px;
+
+    background: #3b3b3b;
+
+    border: 1px solid #555;
+
+    border-radius: 12px;
+
+    overflow-y: auto;
+
+    text-align: left;
+
+     margin-top: 10px;
+
+    margin-bottom: 10px;
+
+}
+
+#zoneEnvoiAccueil {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 8px;
+
+    margin-bottom: 8px;
+
+}
+
+#messageAccueil {
+
+    width: 520px;
+     height: 20px;
+
+    padding: 8px 10px;
+    font-size: 18px;
+
+}
+
+#envoyerAccueil {
+
+    width: 120px;
+    height: 38px;
+
+}
+#accueil h3 {
+
+    margin-top: 20px;
+
+    margin-bottom: 10px;
+
+      margin: 15px 0 8px;
+
+}
+#zoneActions {
+    margin-bottom: 15px;
+}
+#accueilBas{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    margin-top:10px;
+
+    width:100%;
+
+}
+#colonneParties{
+
+    width:280px;
+
+}
+#chatAccueil {
+    width: 100%;
+    height: 95px;
+    margin: 8px auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+#choixModeAccueil{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    margin-top:10px;
+
+}
+.messageAccueil {
+
+    margin-bottom: 6px;
+
+}
+
+.pseudoAccueil {
+
+    color: gold;
+
+    font-weight: bold;
+
+    font-size: 16px;
+
+    margin-bottom: 3px;
+
+}
+
+.texteAccueil {
+
+    color: white;
+
+    font-size: 15px;
+
+    word-wrap: break-word;
+
+}
+#infoUpdate {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    margin: 15px auto;
+
+    padding: 12px 20px;
+
+    background: #6f42c1;
+
+    color: white;
+
+    border-radius: 8px;
+
+    text-align: center;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    box-sizing: border-box;
+
+}
+#profileModal,
+#viewProfileModal {
+
+    display: none;
+
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 600px;
+    max-width: 95vw;
+
+    max-height: 90vh;
+    overflow-y: auto;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    background: #3b3b3b;
+
+    border: 2px solid #666;
+
+    text-align: center;
+
+    z-index: 9999;
+
+}
+.genderOption {
+
+    display: block;
+
+    width: fit-content;
+
+    margin: 12px auto;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+}
+
+.genderOption input {
+
+    margin-right: 10px;
+
+}
+.profileColumns {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 80px;
+
+    margin-top: 30px;
+
+}
+
+.profileColumn {
+
+    width: 200px;
+
+    text-align: left;
+
+}
+
+.profileColumn h3 {
+
+    text-align: center;
+
+    margin-bottom: 20px;
+
+}
+
+.optionLine {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 14px;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+}
+
+.optionLine input {
+
+    width: auto !important;
+
+    margin: 0 !important;
+
+}
+
+.profileBottom {
+
+    margin-top: 30px;
+
+    text-align: center;
+
+}
+
+.profileBottom .optionLine {
+
+    justify-content: center;
+
+    margin-top: 20px;
+
+}
+
+.profileButtons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    margin-top: 25px;
+
+}
+#compteAccueil {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    align-items: center;
+
+}
+
+#logoutProfile {
+
+    width: 120px;
+
+    height: 45px;
+
+}
+#compteAccueil{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    margin-left:40px;
+
+}
+
+#compteAccueil button{
+
+    width:140px;
+
+}
+
+#logoutProfile{
+
+    height:60px;
+
+}
+#zoneCompte {
+
+    display: flex;
+
+    justify-content: flex-start;
+
+    align-items: flex-start;
+
+    padding-left: 80px;
+
+    padding-top: 20px;
+
+}
+
+#compteAccueil {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    align-items: center;
+
+}
+
+#zoneJeu {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+
+    margin-top: -10px;
+
+}
+#joueursEnLigne {
+
+    margin-bottom: 20px;
+
+}
+#profileModal {
+
+    box-sizing: border-box;
+
+}
+
+/* =========================================================
+   PATCH UI — bandeau uniquement à l'accueil + vidéo sous cartes
+   ========================================================= */
+
+#zoneBoutonVideo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 8px auto 20px;
+}
+
+#zoneBoutonVideo #salonVideo {
+    width: auto;
+    min-width: 190px;
+    height: auto;
+    padding: 12px 20px;
+    margin: 0;
+}
+
+#infoSalonVideo {
+    margin: 6px 0 0;
+    font-size: 12px;
+    color: #bbbbbb;
+    text-align: center;
+}
+#conseilMode {
+
+    margin-top: 15px;
+    padding: 10px;
+
+    text-align: center;
+
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    font-size: 15px;
+
+}
