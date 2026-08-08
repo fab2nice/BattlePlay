@@ -208,22 +208,22 @@ const cartesDeBase = [
 "images/humainarc.png","images/humainarc.png",
 "images/humainepee.png","images/humainepee.png",
 "images/humainhache.png","images/humainhache.png",
-"images/humainlance.png","images/humainlance.png",
+
 
 "images/orcarc.png","images/orcarc.png",
 "images/orcepee.png","images/orcepee.png",
 "images/orchache.png","images/orchache.png",
-"images/orcdague.png","images/orcdague.png",
+
 
 "images/nainarc.png","images/nainarc.png",
 "images/naindague.png","images/naindague.png",
 "images/nainhache.png","images/nainhache.png",
-"images/nainmasse.png","images/nainmasse.png",
+
 
 "images/elfearc.png","images/elfearc.png",
 "images/elfedague.png","images/elfedague.png",
 "images/elfeepee.png","images/elfeepee.png",
-"images/elfemagie.png","images/elfemagie.png",
+
 
 ];
 const cartesDeBase3Joueurs = [
@@ -913,15 +913,15 @@ function joueurEstNaked(
     cartes
 ) {
 
-    const couleursJoueurs = {
-        1: "bleu",
-        2: "rouge",
-        3: "jaune",
-        4: "vert"
-    };
+    const factionsJoueurs = {
+    1: "humain",
+    2: "orc",
+    3: "nain",
+    4: "elfe"
+};
 
-    const couleur =
-        couleursJoueurs[numeroJoueur];
+const faction =
+    factionsJoueurs[numeroJoueur];
 
     let cartesTrouveesCouleur = 0;
 
@@ -934,11 +934,10 @@ function joueurEstNaked(
         }
 
         if (
-            cartes[index].includes(couleur)
-        ) {
-            cartesTrouveesCouleur++;
-        }
-
+    cartes[index].includes(faction)
+) {
+    cartesTrouveesCouleur++;
+}
     }
 
     let seuilNaked = 6;
@@ -1047,10 +1046,9 @@ async function verifierVictoireBattle(
     if (joueursEncoreHabilles.length === 1) {
 
         classement.innerHTML =
-            "🏆 VICTOIRE DE " +
-            joueursEncoreHabilles[0] +
-            " !<br><br>" +
-            "Les autres joueurs sont NAKED 🙈";
+    "🏆 VICTORY<br><br>" +
+    "⚔️ Winner: " + joueursEncoreHabilles[0] + "<br><br>" +
+    "All enemy factions have been defeated.";
 
         jeu.style.display = "none";
         finPartie.style.display = "block";
