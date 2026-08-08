@@ -864,7 +864,7 @@ transition: 0.2s;
 
     padding: 12px 20px;
 
-    background: #6f42c1;
+    background: linear-gradient(135deg, #3f5e78, #557d9d);
 
     color: white;
 

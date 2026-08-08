@@ -222,27 +222,28 @@ const cartesDeBase = [
 
 "images/elfearc.png","images/elfearc.png",
 "images/elfedague.png","images/elfedague.png",
-"images/elfeepee.png","images/elfeepee.png"
-"images/elfemagie.png","images/elfemagie.png"
+"images/elfeepee.png","images/elfeepee.png",
+"images/elfemagie.png","images/elfemagie.png",
 
 ];
 const cartesDeBase3Joueurs = [
     "images/humainarc.png","images/humainarc.png",
 "images/humainepee.png","images/humainepee.png",
 "images/humainhache.png","images/humainhache.png",
+"images/humainmagicien.png", "images/humainmagicien.png",
 
 "images/orcarc.png","images/orcarc.png",
 "images/orcepee.png","images/orcepee.png",
 "images/orchache.png","images/orchache.png",
+"images/orcchamane.png", "images/orcchamane.png",
 
 
 "images/elfearc.png","images/elfearc.png",
 "images/elfedague.png","images/elfedague.png",
-"images/elfeepee.png","images/elfeepee.png"
+"images/elfeepee.png","images/elfeepee.png",
+"images/elfemagie.png","images/elfemagie.png",
 
-"images/nainarc.png","images/nainarc.png",
-"images/naindague.png","images/naindague.png",
-"images/nainhache.png","images/nainhache.png",
+
 ];
 const cartesDeBaseDuel = [
 
@@ -250,21 +251,19 @@ const cartesDeBaseDuel = [
 "images/humainepee.png","images/humainepee.png",
 "images/humainhache.png","images/humainhache.png",
 "images/humainlance.png","images/humainlance.png",
+"images/humainmagicien.png", "images/humainmagicien.png",
+"images/humainlmasse.png", "images/humainlmasse.png",
 
     "images/orcarc.png","images/orcarc.png",
 "images/orcepee.png","images/orcepee.png",
 "images/orchache.png","images/orchache.png",
 "images/orcdague.png","images/orcdague.png",
+"images/orcmasse.png", "images/orcmasse.png",
+"images/orcchamane.png", "images/orcchamane.png",
+    
 
-
-    "images/auberginebleue.png", "images/auberginebleue.png",
-    "images/abricotbleu.png", "images/abricotbleu.png",
-
-    "images/auberginerouge.png", "images/auberginerouge.png",
-    "images/abricotrouge.png", "images/abricotrouge.png",
-
-    "images/bouclier.png", "images/bouclier.png",
-    "images/cadeau.png", "images/cadeau.png"
+    "images/sablier.png", "images/sablier.png",
+    "images/grimoire.png", "images/grimoire.png"
 
 ];
 async function updatePartie(
