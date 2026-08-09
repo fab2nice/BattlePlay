@@ -914,9 +914,9 @@ function joueurEstNaked(
 
     const factionsJoueurs = {
     1: "humain",
-    2: "orc",
-    3: "nain",
-    4: "elfe"
+    2: "nain",
+    3: "elfe",
+    4: "orque"
 };
 
 const faction =
@@ -1121,9 +1121,16 @@ if (
         return;
     }
 
-    if (selection.length >= 2) {
-        return;
-    }
+    const bonusGrimoire = game.bonusGrimoire || {};
+
+const limiteSelection =
+    bonusGrimoire[game.joueurActuel] === true
+        ? 3
+        : 2;
+
+if (selection.length >= limiteSelection) {
+    return;
+}
 
     cartesVisibles[indexCarte] = true;
     selection.push(indexCarte);
@@ -1136,14 +1143,76 @@ if (
 
         return;
     }
+    if (
+    bonusGrimoire[game.joueurActuel] === true &&
+    selection.length === 2
+) {
+    await update(partieRef, {
+        "game/cartesVisibles": cartesVisibles,
+        "game/selection": selection
+    });
 
-    const premiereIndex = selection[0];
-    const deuxiemeIndex = selection[1];
+    return;
+}
+
+    let premiereIndex = selection[0];
+let deuxiemeIndex = selection[1];
+
+const grimoireActif =
+    bonusGrimoire[game.joueurActuel] === true;
+
+if (grimoireActif && selection.length === 3) {
+
+    const index1 = selection[0];
+    const index2 = selection[1];
+    const index3 = selection[2];
+
+    if (cartes[index1] === cartes[index2]) {
+
+        premiereIndex = index1;
+        deuxiemeIndex = index2;
+
+    } else if (cartes[index1] === cartes[index3]) {
+
+        premiereIndex = index1;
+        deuxiemeIndex = index3;
+
+    } else if (cartes[index2] === cartes[index3]) {
+
+        premiereIndex = index2;
+        deuxiemeIndex = index3;
+    }
+}
+let carteRestanteGrimoire = null;
+
+if (grimoireActif && selection.length === 3) {
+    carteRestanteGrimoire =
+        selection.find(index =>
+            index !== premiereIndex &&
+            index !== deuxiemeIndex
+        );
+}
 console.error("Avant le if");
     if (cartes[premiereIndex] === cartes[deuxiemeIndex]) {
 console.log("Paire trouvée");
     cartesTrouvees[premiereIndex] = true;
     cartesTrouvees[deuxiemeIndex] = true;
+    if (grimoireActif) {
+
+    bonusGrimoire[game.joueurActuel] = false;
+
+    if (carteRestanteGrimoire !== null) {
+        cartesVisibles[carteRestanteGrimoire] = false;
+    }
+}
+    let bonusSablier = game.bonusSablier || {};
+
+if (cartes[premiereIndex].includes("sablier")) {
+    bonusSablier[game.joueurActuel] = true;
+}
+
+if (cartes[premiereIndex].includes("grimoire")) { bonusGrimoire[game.joueurActuel] = true; }
+console.log("BONUS GRIMOIRE :", bonusGrimoire);
 
     traiterStatistiques(
         partie,
@@ -1174,6 +1243,8 @@ console.log("Paire trouvée");
     "game/scores": scores,
     "game/pairesTrouvees": game.pairesTrouvees + 1,
     "game/joueurActuel": prochainJoueurApresPaire,
+    "game/bonusSablier": bonusSablier,
+    "game/bonusGrimoire": bonusGrimoire,
     "game/timerFin": Date.now() + 20000
 
 });
@@ -1202,19 +1273,45 @@ console.log("Paire trouvée");
 
         nouvellesCartesVisibles[premiereIndex] = false;
         nouvellesCartesVisibles[deuxiemeIndex] = false;
+        if (grimoireActif && selection.length === 3) {
+    const troisiemeIndex = selection[2];
+    nouvellesCartesVisibles[troisiemeIndex] = false;
+}
 
-       let prochainJoueur =
-    trouverProchainJoueur(
-        nouveauGame.joueurActuel,
-        nouveauGame.cartesTrouvees || {},
-        cartes,
-        nouvellePartie.joueurs
-    );
+      let bonusSablier =
+    nouveauGame.bonusSablier || {};
+let nouveauBonusGrimoire =
+    nouveauGame.bonusGrimoire || {};
+
+if (grimoireActif) {
+    nouveauBonusGrimoire[nouveauGame.joueurActuel] = false;
+}
+let prochainJoueur;
+
+if (bonusSablier[nouveauGame.joueurActuel] === true) {
+
+    // Le joueur consomme son sablier et garde la main
+    prochainJoueur = nouveauGame.joueurActuel;
+
+    bonusSablier[nouveauGame.joueurActuel] = false;
+
+} else {
+
+    prochainJoueur =
+        trouverProchainJoueur(
+            nouveauGame.joueurActuel,
+            nouveauGame.cartesTrouvees || {},
+            cartes,
+            nouvellePartie.joueurs
+        );
+}
         await update(partieRef, {
     "game/cartesVisibles": nouvellesCartesVisibles,
     "game/selection": [],
     "game/verrouille": false,
     "game/joueurActuel": prochainJoueur,
+    "game/bonusSablier": bonusSablier,
+    "game/bonusGrimoire": nouveauBonusGrimoire,
     "game/timerFin": Date.now() + 20000
 });
 
