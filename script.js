@@ -232,11 +232,10 @@ const cartesDeBase3Joueurs = [
 "images/humainhache.png","images/humainhache.png",
 "images/humainmagicien.png", "images/humainmagicien.png",
 
-"images/orcarc.png","images/orcarc.png",
-"images/orcepee.png","images/orcepee.png",
-"images/orchache.png","images/orchache.png",
-"images/orcchamane.png", "images/orcchamane.png",
-
+"images/nainarc.png","images/nainarc.png",
+"images/naindague.png","images/naindague.png",
+"images/nainhache.png","images/nainhache.png",
+"images/nainpioche.png","images/nainpioche.png",
 
 "images/elfearc.png","images/elfearc.png",
 "images/elfedague.png","images/elfedague.png",
@@ -254,12 +253,12 @@ const cartesDeBaseDuel = [
 "images/humainmagicien.png", "images/humainmagicien.png",
 "images/humainlmasse.png", "images/humainlmasse.png",
 
-    "images/orcarc.png","images/orcarc.png",
-"images/orcepee.png","images/orcepee.png",
-"images/orchache.png","images/orchache.png",
-"images/orcdague.png","images/orcdague.png",
-"images/orcmasse.png", "images/orcmasse.png",
-"images/orcchamane.png", "images/orcchamane.png",
+"images/nainarc.png","images/nainarc.png",
+"images/naindague.png","images/naindague.png",
+"images/nainhache.png","images/nainhache.png",
+"images/nainpioche.png","images/nainpioche.png",
+"images/nainchamane.png", "images/nainchamane.png",
+"images/nainmasse.png", "images/nainmasse.png",
     
 
     "images/sablier.png", "images/sablier.png",
@@ -727,10 +726,10 @@ async function gererExpirationTimer() {
 }
 function afficherEtatCouleurs(cartesTrouvees, cartes) {
 
-    let bleu = 0;
-let rouge = 0;
-let jaune = 0;
-let vert = 0;
+    let humain = 0;
+let nain = 0;
+let elfe = 0;
+let orque = 0;
 
     for (let index in cartesTrouvees) {
 
@@ -744,44 +743,44 @@ let vert = 0;
             cartes[index];
 
         if (
-            carte.includes("bleu")
+            carte.includes("humain")
         ) {
-            bleu++;
+            humain++;
         }
 
         if (
-            carte.includes("rouge")
+            carte.includes("nain")
         ) {
-            rouge++;
+            nain++;
         }
 
         if (
-            carte.includes("jaune")
+            carte.includes("elfe")
         ) {
-            jaune++;
+            elfe++;
         }
 
         if (
-            carte.includes("vert")
+            carte.includes("orque")
         ) {
-            vert++;
+            orque++;
         }
 
     }
 
-   const restantBleu =
-    3 - bleu / 2;
+   const restantHumain =
+    3 - humain / 2;
 
-const restantRouge =
-    3 - rouge / 2;
+const restantNain =
+    3 - nain / 2;
 
-const restantJaune =
-    3 - jaune / 2;
+const restantElfe =
+    3 - elfe / 2;
 
-const restantVert =
-    3 - vert / 2;
+const restantOrque =
+    3 - orque / 2;
+affichageCouleurs.innerHTML = "🔵 Humans : " + restantHumain + " | 🔴 Dwarves : " + restantNain + " | 🟡 Elves : " + restantElfe + " | 🟢 Orcs : " + restantOrque;
 
-affichageCouleurs.innerHTML = "";
 }
 function dessinerPlateau(partie) {
     partieActuelle = partie;
