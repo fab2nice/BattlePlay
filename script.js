@@ -138,10 +138,7 @@ const profilePassword =
 
 const profileConfirmPassword =
     document.getElementById("profileConfirmPassword");
-    const playMen = document.getElementById("playMen");
-const playWomen = document.getElementById("playWomen");
-const playCouples = document.getElementById("playCouples");
-const playMartians = document.getElementById("playMartians");
+    
 
 const profileCountry = document.getElementById("profileCountry");
 const loginProfile =
@@ -1618,17 +1615,7 @@ if (
     lobby.style.display = "none";
     finPartie.style.display = "none";
 
-    if (tutorielVu === false) {
-
-        jeu.style.display = "none";
-        howToPlay.style.display = "block";
-
-    } else {
-
-        howToPlay.style.display = "none";
-        jeu.style.display = "block";
-
-    }
+    jeu.style.display = "block";
            
             if (partie.mode === 2) {
 
@@ -2012,19 +1999,7 @@ cancelProfile.addEventListener(
 
 boutonNouvellePartie.addEventListener("click", nouvellePartie);
 boutonRejouer.addEventListener("click", nouvellePartie);
-document
-.getElementById("continuerJeu")
-.addEventListener(
-    "click",
-    function(){
-        tutorielVu = true;
 
-        howToPlay.style.display="none";
-
-        jeu.style.display="block";
-
-    }
-);
 
 prechargerImages();
 surveillerPresence();
@@ -2804,22 +2779,24 @@ function surveillerNotifications(code) {
 function afficherRegles() {
 
     alert(
-`⚔️ PLAYBATTLE
+`⚔️ BATTLEPLAY
 
 HOW TO WIN
 
-🎯 Find your opponents' clothes,
+🎯 Find your opponents' faction pairs,
 NOT YOUR OWN!
 
-👕 Every clothing pair found
-must be removed by its owner.
+⚔️ Every pair found
+weakens its faction.
 
-🙈 A naked player is eliminated.
+💀 A faction that loses all its cards
+is eliminated.
 
-📹 Click the yellow Open Video button.
+📹 Click VIDEO & CHAT
+to see and chat with your friends.
 
-🤝 Respect every player
-and have fun!`
+🏆 Be the last faction standing
+to win the battle!`
     );
 
 }
@@ -2889,17 +2866,7 @@ if (snapshot.exists()) {
         'input[name="gender"]:checked'
     ).value,
 
-    playWith: {
-
-        men: playMen.checked,
-
-        women: playWomen.checked,
-
-        couples: playCouples.checked,
-
-        martians: playMartians.checked
-
-    },
+    
 
     country: profileCountry.value.trim(),
     gamesPlayed: 0,
@@ -3042,91 +3009,38 @@ async function voirProfil(nom) {
 
     const profil =
         snapshot.val();
-        let prefere = [];
-
-if (profil.playWith.men)
-    prefere.push("👨");
-
-if (profil.playWith.women)
-    prefere.push("👩");
-
-if (profil.playWith.couples)
-    prefere.push("👩‍❤️‍👨");
-
-if (profil.playWith.martians)
-    prefere.push("👽");
+        
 
     viewProfileContent.innerHTML =
 
-"<h4>📊 STATISTICS</h4>" +
+    "<h4>📊 STATISTICS</h4>" +
 
-"<b>🎮 Games Played</b><br>" +
-(profil.gamesPlayed || 0) +
+    "<b>🎮 Games Played</b><br>" +
+    (profil.gamesPlayed || 0) +
 
-"<br>" +
+    "<br><br>" +
 
-"<b>🏆 Victories</b><br>" +
-(profil.victories || 0) +
+    "<b>🏆 Victories</b><br>" +
+    (profil.victories || 0) +
 
-"<br>" +
+    "<hr>" +
 
-"<b>🔥 Best Win Streak</b><br>" +
-"🚧 In development" +
+    "<h4>👤 PLAYER</h4>" +
 
-"<br>" +
+    "<b>🌍 Country</b><br>" +
+    (profil.country || "-") +
 
-"<b>🙈 Times Naked</b><br>" +
-"🚧 In development" +
+    "<br><br>" +
 
-"<br>" +
+    "<b>📅 Member Since</b><br>" +
+    new Date(profil.createdAt).toLocaleDateString() +
 
-"<b>🏅 Badges</b><br>" +
-"🚧 In development" +
+    "<br><br>" +
 
-"<br>" +
-
-"<b>⭐ Achievements</b><br>" +
-"🚧 In development" +
-
-"<hr>" +
-
-"<h4>👤 PLAYER</h4>" +
-
-"<b>🌍 Country</b><br>" +
-(profil.country || "-") +
-
-"<br>" +
-
-"<b>📅 Member Since</b><br>" +
-new Date(profil.createdAt).toLocaleDateString() +
-
-"<br>" +
-
-"<b>👤 I am</b><br>" +
-profil.gender +
-
-"<br>" +
-
-"<b>🎮 I like to play with</b><br>" +
-
-(profil.playWith.men
-    ? "✔ Men<br>"
-    : "") +
-
-(profil.playWith.women
-    ? "✔ Women<br>"
-    : "") +
-
-(profil.playWith.couples
-    ? "✔ Couples<br>"
-    : "") +
-
-(profil.playWith.martians
-    ? "✔ Martians<br>"
-    : "");
-
-viewProfileModal.style.display =
-    "block";
+    "<b>👤 Gender</b><br>" +
+(profil.gender || "-");
+viewProfileModal.style.display = "block";
 
 }
+
 window.voirProfil = voirProfil;

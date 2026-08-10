@@ -1136,3 +1136,6 @@ transition: 0.2s;
     font-size: 15px;
 
 }
+#continuerJeu {
+    display: none !important;
+}
