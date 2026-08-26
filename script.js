@@ -128,8 +128,7 @@ const envoyerAccueil =
     document.getElementById("envoyerAccueil");
     const saveProfile =
     document.getElementById("saveProfile");
-    const over18 =
-    document.getElementById("over18");
+  
     const profileNickname =
     document.getElementById("profileNickname");
 
@@ -2802,14 +2801,7 @@ to win the battle!`
 }
 saveProfile.addEventListener("click", async function () {
 
-    if (!over18.checked) {
-
-        alert("You must confirm that you are over 18 years old.");
-
-        return;
-
-    }
-
+    
     if (profileNickname.value.trim() === "") {
 
         alert("Please choose a nickname.");
